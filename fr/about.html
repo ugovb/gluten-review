@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos de cette revue — Gluten & Vous</title>
+  <meta name="description" content="Comment cette revue de littérature a été construite : stratégie de recherche, bases de données interrogées, et critères de vérification que chaque citation a franchis.">
+  <meta name="alternate" hreflang="en" href="../about.html">
+  <meta name="alternate" hreflang="fr" href="about.html">
+  <link rel="canonical" href="about.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230891B2'/%3E%3Ctext x='50' y='66' font-family='monospace' font-size='52' font-weight='700' text-anchor='middle' fill='%23FFFFFF'%3Eg%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-brand-mark">g</span>
+        <span>Gluten &amp; Vous</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link ">Aperçu</a></li>
+        <li><a href="conditions.html" class="nav-link ">Pathologies</a></li>
+        <li><a href="evidence.html" class="nav-link ">Preuves</a></li>
+        <li><a href="spain.html" class="nav-link ">Espagne &amp; réglementation</a></li>
+        <li><a href="about.html" class="nav-link active">À propos</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="../index.html" class="lang-toggle" aria-label="Switch to English" lang="en">EN</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Basculer le mode sombre">☾ Sombre</button>
+        <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </nav>
+    <div class="backdrop" id="backdrop"></div>
+    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <ul class="mobile-drawer-list">
+        <li><a href="index.html" class="mobile-drawer-link ">Aperçu</a></li>
+        <li><a href="conditions.html" class="mobile-drawer-link ">Pathologies</a></li>
+        <li><a href="evidence.html" class="mobile-drawer-link ">Preuves</a></li>
+        <li><a href="spain.html" class="mobile-drawer-link ">Espagne &amp; réglementation</a></li>
+        <li><a href="about.html" class="mobile-drawer-link active">À propos</a></li>
+      </ul>
+
+  <header class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Aperçu</a> / À propos</div>
+      <h1>Comment cette revue a été construite.</h1>
+      <p class="lede">Un compte rendu transparent de la stratégie de recherche, des bases de données interrogées et des portes de vérification que chaque citation a franchies.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="section-label">Le pipeline</div>
+      <h2>Recherche → vérification → déduplication → notation → citation.</h2>
+      <p>Construite en utilisant les skills `literature-review` et `doi-verify` avec PubMed (E-utilities NCBI), OpenAlex et l'API REST Crossref.</p>
+
+      <h3>Étape 1 — Recherche PubMed large</h3>
+      <p>Une requête booléenne combinée couvrant les trois pathologies, filtrée sur anglais/espagnol, dates de publication 2022/01/01 à 2026/12/31 :</p>
+      <div class="citation"><code>"Celiac Disease"[Mesh] OR "non-celiac gluten sensitivity"[tiab] OR "NCGS"[tiab] OR "gluten sensitivity"[tiab] OR "gluten intolerance"[tiab] OR "Wheat Hypersensitivity"[Mesh] OR "wheat allergy"[tiab] OR "coeliac disease"[tiab] AND ("2022/01/01"[PDAT] : "2026/12/31"[PDAT])</code></div>
+      <p>Cela a renvoyé <strong>2 772 résultats</strong>. Les 80 les plus pertinents selon le classement de pertinence de PubMed ont été récupérés intégralement (XML efetch), plus 64 articles supplémentaires issus de sous-requêtes ciblées (Espagne, critères diagnostiques, revues allergie au blé, nocebo/FODMAP).</p>
+
+      <h3>Étape 2 — Sous-requêtes ciblées</h3>
+      <p>Cinq requêtes booléennes ciblées ont été ajoutées pour capturer des angles que la requête large aurait manqués :</p>
+      <ul class="bullet">
+        <li>Espagne + cœliaque / NCGS — 156 résultats</li>
+        <li>Espagne + réglementation sans gluten / AESAN / FACE — 8 résultats</li>
+        <li>NCGS + critères diagnostiques / Salerne — 20 résultats</li>
+        <li>Filtre revues allergie au blé — 27 résultats</li>
+        <li>NCGS + nocebo / attente / FODMAP — 21 résultats</li>
+      </ul>
+
+      <h3>Étape 3 — Passage OpenAlex</h3>
+      <p>La recherche plein texte d'OpenAlex est permissive et bruyante pour des sujets cliniques étroits, donc elle a été utilisée pour des vérifications d'exhaustivité plutôt que comme source principale. L'essentiel des preuves vient de l'indexation MeSH contrôlée de PubMed, qui est le bon outil pour les requêtes biomédicales.</p>
+
+      <h3>Étape 4 — Déduplication</h3>
+      <p>Fusion par PMID, puis déduplication par DOI canonique (en minuscules, normalisé Crossref). Final : <strong>142 DOI uniques</strong> + 2 sans DOI.</p>
+
+      <h3>Étape 5 — Vérification DOI (la porte anti-hallucination)</h3>
+      <p>Chaque DOI a été résolu en lot via l'API REST Crossref (le registre canonique des métadonnées DOI). Chaque candidat a été vérifié pour :</p>
+      <ul class="bullet">
+        <li>Le DOI renvoie HTTP 200 avec métadonnées (vs 404 / halluciné)</li>
+        <li>Le type est <code>journal-article</code>, <code>proceedings-article</code> ou <code>book-chapter</code> — les préprints (<code>posted-content</code>) exclus sauf intention explicite</li>
+        <li>L'année correspond à ce qui est affirmé (±1 acceptable pour in-press)</li>
+        <li>Le titre correspond à ce que le LLM aurait cité (vérifié pendant l'étape d'écriture)</li>
+        <li><code>is-retracted</code> est faux</li>
+      </ul>
+      <p>Résultat : <strong>140/142 DOI résolus avec succès</strong>. Les deux échecs (une revue domestique en chinois, un document non-revue) ont été exclus de l'ensemble des citations.</p>
+
+      <h3>Étape 6 — Notation de pertinence</h3>
+      <p>Les 140 articles vérifiés ont été notés sur une grille pondérée pour leur pertinence à la question d'Ugo (CD vs NCGS vs allergie au blé, plus angle Espagne) :</p>
+      <ul class="bullet">
+        <li>Mots-clés NCGS / sensibilité au gluten : +3 par correspondance</li>
+        <li>Mots-clés allergie au blé : +2 par correspondance</li>
+        <li>Mots-clés Espagne / espagnol / AESAN / FACE : +5 par correspondance (angle unique)</li>
+        <li>Diagnostic différentiel / Salerne / recommandations / consensus : +2 par correspondance</li>
+        <li>Type de publication = Revue / Revue systématique / Méta-analyse / Recommandations : +4</li>
+        <li>Journal à fort impact (Lancet, Nature, Gut, Gastroenterology, BMJ, JAMA, etc.) : +2</li>
+      </ul>
+      <p>Les 25 les mieux notés, plus les œuvres à plus fort impact (Lancet, Nature Reviews, recommandations ESsCD), ont été priorisés pour lecture directe des abstracts et citation dans ce site.</p>
+
+      <h3>Étape 7 — Lecture + rédaction</h3>
+      <p>Les abstracts ont été lus directement depuis le XML efetch de PubMed (pas des abstracts d'abstracts). Les affirmations clés du texte du site sont citées à partir des abstracts, avec des citations [N] renvoyant au DOI vérifié sur la page <a href="evidence.html">preuves</a>.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-label">Numérotation des citations</div>
+      <h2>Liste de références.</h2>
+      <p>Les citations numérotées utilisées dans ce site :</p>
+
+      <ol class="bullet">
+        <li><strong>Al-Toma A et al.</strong> European Society for the Study of Coeliac Disease 2025 Updated Guidelines on the Diagnosis and Management of Coeliac Disease in Adults. Part 1: Diagnostic Approach. United European Gastroenterol J. 2025. <a href="https://doi.org/10.1002/ueg2.70119" target="_blank" rel="noopener">doi:10.1002/ueg2.70119</a>.</li>
+        <li><strong>Catassi C, Verdu EF, Bai JC, Lionetti E.</strong> Coeliac disease. Lancet. 2022;399(10344):2413-2426. <a href="https://doi.org/10.1016/s0140-6736(22)00794-2" target="_blank" rel="noopener">doi:10.1016/s0140-6736(22)00794-2</a>.</li>
+        <li><strong>Biesiekierski JR.</strong> Non-coeliac gluten sensitivity. Lancet. 2025. <a href="https://doi.org/10.1016/s0140-6736(25)01533-8" target="_blank" rel="noopener">doi:10.1016/s0140-6736(25)01533-8</a>.</li>
+        <li><strong>Manza F et al.</strong> Non-Celiac Gluten/Wheat Sensitivity — State of the Art: A Five-Year Narrative Review. Nutrients. 2025;17(2):220. <a href="https://doi.org/10.3390/nu17020220" target="_blank" rel="noopener">doi:10.3390/nu17020220</a>.</li>
+        <li><strong>Bektaş A et al.</strong> Non-celiac Gluten Sensitivity: A New Clinical Entity or Growing Controversy? Euroasian J Hepato-Gastroenterol. 2026. <a href="https://doi.org/10.5005/jp-journals-10018-1479" target="_blank" rel="noopener">doi:10.5005/jp-journals-10018-1479</a>.</li>
+        <li><strong>de Graaf MCG et al.</strong> The effect of expectancy versus actual gluten intake on gastrointestinal and extra-intestinal symptoms in non-coeliac gluten sensitivity: a randomised, double-blind, placebo-controlled, international, multicentre study. Lancet Gastroenterol Hepatol. 2024;9(2):110-120. <a href="https://doi.org/10.1016/s2468-1253(23)00317-5" target="_blank" rel="noopener">doi:10.1016/s2468-1253(23)00317-5</a>.</li>
+        <li><strong>Expósito Miranda R et al.</strong> Non-celiac gluten sensitivity: Clinical presentation, etiology and differential diagnosis. Gastroenterol Hepatol. 2023;46(1):40-51. <a href="https://doi.org/10.1016/j.gastrohep.2022.10.001" target="_blank" rel="noopener">doi:10.1016/j.gastrohep.2022.10.001</a>.</li>
+        <li><strong>Al-Toma A et al.</strong> ESsCD 2025 Updated Guidelines — Part 2: Management, follow-up, refractory disease. United European Gastroenterol J. 2026. <a href="https://doi.org/10.1002/ueg2.70195" target="_blank" rel="noopener">doi:10.1002/ueg2.70195</a>.</li>
+        <li><strong>Ludvigsson JF et al.</strong> Coeliac disease: complications and comorbidities. Nat Rev Gastroenterol Hepatol. 2025. <a href="https://doi.org/10.1038/s41575-024-01032-w" target="_blank" rel="noopener">doi:10.1038/s41575-024-01032-w</a>.</li>
+        <li><strong>Wall E et al.</strong> Celiac Disease, Gluten Sensitivity, and Diet Management. Curr Gastroenterol Rep. 2024;26(6):191-198. <a href="https://doi.org/10.1007/s11894-024-00931-x" target="_blank" rel="noopener">doi:10.1007/s11894-024-00931-x</a>.</li>
+        <li><strong>Størdal B et al.</strong> Celiac disease, non-celiac wheat sensitivity, wheat allergy — clinical and diagnostic aspects. Semin Immunol. 2025. <a href="https://doi.org/10.1016/j.smim.2025.101930" target="_blank" rel="noopener">doi:10.1016/j.smim.2025.101930</a>.</li>
+        <li><strong>Khan S et al.</strong> Wheat-Related Gastrointestinal Diseases: Narrative Review. Turk J Gastroenterol. 2025. <a href="https://doi.org/10.5152/tjg.2025.25375" target="_blank" rel="noopener">doi:10.5152/tjg.2025.25375</a>.</li>
+        <li><strong>Srisuwatchari W et al.</strong> Molecular Diagnosis to IgE-mediated Wheat Allergy and Wheat-Dependent Exercise-Induced Anaphylaxis. Clin Rev Allergy Immunol. 2025. <a href="https://doi.org/10.1007/s12016-025-09059-w" target="_blank" rel="noopener">doi:10.1007/s12016-025-09059-w</a>.</li>
+        <li><strong>Liu M et al.</strong> A Meta-Analysis of the Prevalence of Wheat Allergy Worldwide. Nutrients. 2023;15(7):1564. <a href="https://doi.org/10.3390/nu15071564" target="_blank" rel="noopener">doi:10.3390/nu15071564</a>.</li>
+        <li><strong>Vignoli A et al.</strong> Serum metabolomics and lipoproteomics discriminate celiac disease and non-celiac gluten sensitivity patients. Clin Nutr. 2025;45:18-27. <a href="https://doi.org/10.1016/j.clnu.2024.12.016" target="_blank" rel="noopener">doi:10.1016/j.clnu.2024.12.016</a>.</li>
+        <li><strong>Correa-Ventura C et al.</strong> Anemia in non-celiac gluten sensitivity: a systematic review. Rev Clin Esp. 2025. <a href="https://doi.org/10.1016/j.rceng.2025.502351" target="_blank" rel="noopener">doi:10.1016/j.rceng.2025.502351</a>.</li>
+        <li><strong>Catassi C et al.</strong> The role of microbiome in the development of gluten-related disorders. Best Pract Res Clin Gastroenterol. 2024;71:101951. <a href="https://doi.org/10.1016/j.bpg.2024.101951" target="_blank" rel="noopener">doi:10.1016/j.bpg.2024.101951</a>.</li>
+        <li><strong>Jansson-Knodell C et al.</strong> Gluten-related Disorders From Bench to Bedside. Clin Gastroenterol Hepatol. 2024;22(8):1643-1654. <a href="https://doi.org/10.1016/j.cgh.2023.09.042" target="_blank" rel="noopener">doi:10.1016/j.cgh.2023.09.042</a>.</li>
+        <li><strong>Awosika T et al.</strong> Misdiagnosis of alpha-gal syndrome as non-celiac gluten sensitivity or lactose intolerance. World J Gastroenterol. 2026;32(3). <a href="https://doi.org/10.3748/wjg.v32.i3.116350" target="_blank" rel="noopener">doi:10.3748/wjg.v32.i3.116350</a>.</li>
+        <li><strong>Capra ME et al.</strong> Gluten-related nutritional challenges in pediatric subjects. Front Nutr. 2025. <a href="https://doi.org/10.3389/fnut.2025.1709121" target="_blank" rel="noopener">doi:10.3389/fnut.2025.1709121</a>.</li>
+        <li><strong>Piotin C et al.</strong> Investigating Non-celiac Wheat Sensitivity: A Comprehensive Review of Pathophysiology. Clin Rev Allergy Immunol. 2025. <a href="https://doi.org/10.1007/s12016-025-09106-6" target="_blank" rel="noopener">doi:10.1007/s12016-025-09106-6</a>.</li>
+        <li><strong>Makharia GK et al.</strong> The global burden of coeliac disease: opportunities and challenges. Nat Rev Gastroenterol Hepatol. 2022;19(3):141-152. <a href="https://doi.org/10.1038/s41575-021-00552-z" target="_blank" rel="noopener">doi:10.1038/s41575-021-00552-z</a>.</li>
+        <li><strong>An R et al.</strong> Molecular Triggers of Non-celiac Wheat Sensitivity: A Scoping Review and Analysis. Am J Gastroenterol. 2025. <a href="https://doi.org/10.14309/ajg.0000000000003318" target="_blank" rel="noopener">doi:10.14309/ajg.0000000000003318</a>.</li>
+        <li><strong>Gibson PR et al.</strong> Coeliac disease in 2022. Aliment Pharmacol Ther. 2022;56(S1):3-15. <a href="https://doi.org/10.1111/apt.17100" target="_blank" rel="noopener">doi:10.1111/apt.17100</a>.</li>
+      </ol>
+
+      <h3>Ce qui n'est délibérément PAS dans cette revue</h3>
+      <p>Cette revue est délimitée pour rester rigoureuse et utile :</p>
+      <ul class="bullet">
+        <li><strong>Articles d'avant 2022</strong> — la question portait spécifiquement sur la littérature actuelle. Les œuvres historiques de référence (Sapone 2012 sur le consensus NCGS, etc.) ne sont pas citées.</li>
+        <li><strong>Sources non-évaluées par les pairs</strong> — pas de blogs bien-être, pas d'allégations de fabricants, pas d'articles de presse.</li>
+        <li><strong>Copies piratées / Sci-Hub</strong> — aucun article n'est cité à partir d'une source non-officielle. Chaque DOI est ouvert, archivé sur PMC, ou paywall (nous citons le DOI indépendamment de l'accès).</li>
+        <li><strong>Données d'enquête en auto-déclaration sans vérification biologique</strong> — les données du marché sans gluten (20,1 milliards USD en 2021) sont dans l'article Bektaş 2026 pour le contexte ; elles ne sont pas utilisées pour faire des affirmations médicales.</li>
+        <li><strong>Allégations « non cœliaque » spéculatives sans données de test en aveugle</strong> — le chiffre 16–30 % (Biesiekierski 2025) est la figure conservatrice basée sur des études contrôlées, pas l'auto-déclaration.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-label">Important</div>
+      <h2>Ce que cette revue n'est pas.</h2>
+
+      <div class="callout callout-warm">
+        <h4>Pas un avis médical</h4>
+        <p>Ceci est une revue de littérature à des fins éducatives. Ce n'est pas un outil diagnostique, pas une recommandation de traitement, et pas un substitut à la consultation avec un gastro-entérologue, un allergologue ou un diététicien diplômé. La décision de commencer, continuer ou arrêter un régime sans gluten doit être prise avec un professionnel de santé qui connaît votre historique médical complet.</p>
+      </div>
+
+      <div class="callout callout-blue">
+        <h4>Pas un substitut aux articles eux-mêmes</h4>
+        <p>Chaque affirmation ici est paraphrasée ou directement citée à partir des abstracts cités. Les articles complets contiennent des nuances (méthodes statistiques, tailles d'échantillons, critères d'exclusion, divulgations de conflits d'intérêts) que ce site ne peut pas reproduire. Si une affirmation compte pour vous, cliquez sur le DOI et lisez l'original.</p>
+      </div>
+
+      <div class="callout">
+        <h4>Construit sur une date butoir</h4>
+        <p>La recherche documentaire a été complétée le jour où ce site a été généré. La médecine évolue — de nouveaux articles apparaissent chaque semaine, et le tableau 2026 sera différent du tableau 2027. Si une question compte, revérifiez la littérature dans six mois.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="inner">
+      <div>© 2026 · Revue de littérature · Construite avec des sources évaluées par les pairs</div>
+      <div>
+        <a href="about.html">Méthodologie</a>
+        <a href="evidence.html">Toutes les sources</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+      const btn = document.getElementById('themeToggle');
+      function updateTheme() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        btn.textContent = isDark ? '\u2600 Clair' : '\u263e Sombre';
+        btn.setAttribute('aria-label', isDark ? 'Passer en mode clair' : 'Passer en mode sombre');
+      }
+      updateTheme();
+      btn.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) { document.documentElement.removeAttribute('data-theme'); localStorage.setItem('theme', 'light'); }
+        else { document.documentElement.setAttribute('data-theme', 'dark'); localStorage.setItem('theme', 'dark'); }
+        updateTheme();
+      });
+
+      const hamburger = document.getElementById('hamburger');
+      const drawer = document.getElementById('mobileDrawer');
+      const backdrop = document.getElementById('backdrop');
+      function openDrawer() {
+        drawer.classList.add('open'); backdrop.classList.add('show');
+        hamburger.setAttribute('aria-expanded', 'true'); hamburger.setAttribute('aria-label', 'Fermer le menu');
+        drawer.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
+      }
+      function closeDrawer() {
+        drawer.classList.remove('open'); backdrop.classList.remove('show');
+        hamburger.setAttribute('aria-expanded', 'false'); hamburger.setAttribute('aria-label', 'Ouvrir le menu');
+        drawer.setAttribute('aria-hidden', 'true'); document.body.style.overflow = '';
+      }
+      function toggleDrawer() { if (drawer.classList.contains('open')) closeDrawer(); else openDrawer(); }
+      hamburger.addEventListener('click', toggleDrawer);
+      backdrop.addEventListener('click', closeDrawer);
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer(); });
+      drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => { if (window.innerWidth > 768 && drawer.classList.contains('open')) closeDrawer(); }, 150);
+      });
+    })();
+  </script>
+</body>
+</html>

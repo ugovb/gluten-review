@@ -191,6 +191,33 @@ h1, h2, h3, h4, h5, h6 {
   gap: 4px;
 }
 
+
+/* Language toggle */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--color-border-medium);
+  border-radius: 9999px;
+  padding: 0 12px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  min-height: 44px;
+  min-width: 44px;
+  transition: all var(--motion-fast) var(--easing);
+}
+
+.lang-toggle:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-muted);
+}
+
 .theme-toggle {
   background: transparent;
   border: 1px solid var(--color-border-medium);
