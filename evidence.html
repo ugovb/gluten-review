@@ -19,17 +19,31 @@
         <span>Gluten &amp; You</span>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html" class="nav-link">Overview</a></li>
-        <li><a href="conditions.html" class="nav-link">Conditions</a></li>
+        <li><a href="index.html" class="nav-link ">Overview</a></li>
+        <li><a href="conditions.html" class="nav-link ">Conditions</a></li>
         <li><a href="evidence.html" class="nav-link active">Evidence</a></li>
-        <li><a href="spain.html" class="nav-link">Spain &amp; Regulation</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="spain.html" class="nav-link ">Spain &amp; Regulation</a></li>
+        <li><a href="about.html" class="nav-link ">About</a></li>
       </ul>
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">☾ Dark</button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
       </div>
+    </nav>
+    <div class="backdrop" id="backdrop"></div>
+    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <ul class="mobile-drawer-list">
+        <li><a href="index.html" class="mobile-drawer-link ">Overview</a></li>
+        <li><a href="conditions.html" class="mobile-drawer-link ">Conditions</a></li>
+        <li><a href="evidence.html" class="mobile-drawer-link active">Evidence</a></li>
+        <li><a href="spain.html" class="mobile-drawer-link ">Spain &amp; Regulation</a></li>
+        <li><a href="about.html" class="mobile-drawer-link ">About</a></li>
+      </ul>
     </div>
-  </nav>
 
   <header class="page-header">
     <div class="container">
@@ -398,14 +412,16 @@
 
   <script>
     (function() {
+      // Theme persistence
       const saved = localStorage.getItem('theme');
       if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
       const btn = document.getElementById('themeToggle');
-      function update() {
+      function updateTheme() {
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        btn.textContent = isDark ? '☀ Light' : '☾ Dark';
+        btn.textContent = isDark ? '\u2600 Light' : '\u263e Dark';
+        btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
       }
-      update();
+      updateTheme();
       btn.addEventListener('click', () => {
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         if (isDark) {
@@ -415,7 +431,49 @@
           document.documentElement.setAttribute('data-theme', 'dark');
           localStorage.setItem('theme', 'dark');
         }
-        update();
+        updateTheme();
+      });
+
+      // Hamburger menu
+      const hamburger = document.getElementById('hamburger');
+      const drawer = document.getElementById('mobileDrawer');
+      const backdrop = document.getElementById('backdrop');
+
+      function openDrawer() {
+        drawer.classList.add('open');
+        backdrop.classList.add('show');
+        hamburger.setAttribute('aria-expanded', 'true');
+        hamburger.setAttribute('aria-label', 'Close menu');
+        drawer.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeDrawer() {
+        drawer.classList.remove('open');
+        backdrop.classList.remove('show');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Open menu');
+        drawer.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+      function toggleDrawer() {
+        if (drawer.classList.contains('open')) closeDrawer(); else openDrawer();
+      }
+
+      hamburger.addEventListener('click', toggleDrawer);
+      backdrop.addEventListener('click', closeDrawer);
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+      });
+
+      drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          if (window.innerWidth > 768 && drawer.classList.contains('open')) closeDrawer();
+        }, 150);
       });
     })();
   </script>
