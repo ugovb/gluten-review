@@ -1015,6 +1015,11 @@ td {
   .nav-links { display: none; }
   .hamburger { display: inline-flex; }
   .mobile-drawer { display: block; }
+  .nav-inner { gap: 8px; padding: 10px 16px; }
+  .nav-actions { gap: 2px; }
+  .lang-toggle { min-width: 36px; padding: 0 8px; font-size: 11px; }
+  .theme-toggle { padding: 4px 10px; font-size: 11px; }
+  .hamburger { width: 40px; height: 40px; }
 
   .hero { padding: 40px 0 32px; }
   .hero h1 { font-size: 32px; letter-spacing: -0.6px; line-height: 1.15; }

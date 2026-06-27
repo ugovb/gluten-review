@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>À propos de cette revue — Gluten & Vous</title>
-  <meta name="description" content="Comment cette revue de littérature a été construite : stratégie de recherche, bases de données interrogées, et critères de vérification que chaque citation a franchis.">
-  <meta name="alternate" hreflang="en" href="../about.html">
-  <meta name="alternate" hreflang="fr" href="about.html">
+  <title>Sobre esta revisión — Gluten y Tú</title>
+  <meta name="description" content="Cómo se construyó esta revisión bibliográfica: estrategia de búsqueda, bases de datos consultadas y criterios de verificación que cada cita pasó.">
+  <meta name="alternate" hreflang="en" href="../index.html">
+  <meta name="alternate" hreflang="fr" href="../fr/index.html">
+  <meta name="alternate" hreflang="es" href="index.html">
   <link rel="canonical" href="about.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,20 +20,20 @@
     <div class="nav-inner">
       <a href="index.html" class="nav-brand">
         <span class="nav-brand-mark">g</span>
-        <span>Gluten &amp; Vous</span>
+        <span>Gluten &amp; Tú</span>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html" class="nav-link ">Aperçu</a></li>
-        <li><a href="conditions.html" class="nav-link ">Pathologies</a></li>
-        <li><a href="evidence.html" class="nav-link ">Preuves</a></li>
-        <li><a href="spain.html" class="nav-link ">Espagne &amp; réglementation</a></li>
-        <li><a href="about.html" class="nav-link active">À propos</a></li>
+        <li><a href="index.html" class="nav-link ">Visión general</a></li>
+        <li><a href="conditions.html" class="nav-link ">Patologías</a></li>
+        <li><a href="evidence.html" class="nav-link ">Pruebas</a></li>
+        <li><a href="spain.html" class="nav-link ">España &amp; normativa</a></li>
+        <li><a href="about.html" class="nav-link active">Sobre</a></li>
       </ul>
       <div class="nav-actions">
         <a href="../index.html" class="lang-toggle" aria-label="Switch to English" lang="en">EN</a>
-        <a href="../es/index.html" class="lang-toggle" aria-label="Cambiar a español" lang="es">ES</a>
-        <button class="theme-toggle" id="themeToggle" aria-label="Basculer le mode sombre">☾ Sombre</button>
-        <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <a href="../fr/index.html" class="lang-toggle" aria-label="Passer en français" lang="fr">FR</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo oscuro">☾ Oscuro</button>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileDrawer">
           <span class="hamburger-bar"></span>
           <span class="hamburger-bar"></span>
           <span class="hamburger-bar"></span>
@@ -42,81 +43,81 @@
     <div class="backdrop" id="backdrop"></div>
     <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
       <ul class="mobile-drawer-list">
-        <li><a href="index.html" class="mobile-drawer-link ">Aperçu</a></li>
-        <li><a href="conditions.html" class="mobile-drawer-link ">Pathologies</a></li>
-        <li><a href="evidence.html" class="mobile-drawer-link ">Preuves</a></li>
-        <li><a href="spain.html" class="mobile-drawer-link ">Espagne &amp; réglementation</a></li>
-        <li><a href="about.html" class="mobile-drawer-link active">À propos</a></li>
+        <li><a href="index.html" class="mobile-drawer-link ">Visión general</a></li>
+        <li><a href="conditions.html" class="mobile-drawer-link ">Patologías</a></li>
+        <li><a href="evidence.html" class="mobile-drawer-link ">Pruebas</a></li>
+        <li><a href="spain.html" class="mobile-drawer-link ">España &amp; normativa</a></li>
+        <li><a href="about.html" class="mobile-drawer-link active">Sobre</a></li>
       </ul>
 
   <header class="page-header">
     <div class="container">
-      <div class="breadcrumb"><a href="index.html">Aperçu</a> / À propos</div>
-      <h1>Comment cette revue a été construite.</h1>
-      <p class="lede">Un compte rendu transparent de la stratégie de recherche, des bases de données interrogées et des portes de vérification que chaque citation a franchies.</p>
+      <div class="breadcrumb"><a href="index.html">Visión general</a> / Sobre</div>
+      <h1>Cómo se construyó esta revisión.</h1>
+      <p class="lede">Un relato transparente de la estrategia de búsqueda, las bases de datos consultadas y las puertas de verificación que cada cita atravesó.</p>
     </div>
   </header>
 
   <section>
     <div class="container">
-      <div class="section-label">Le pipeline</div>
-      <h2>Recherche → vérification → déduplication → notation → citation.</h2>
-      <p>Construite en utilisant les skills `literature-review` et `doi-verify` avec PubMed (E-utilities NCBI), OpenAlex et l'API REST Crossref.</p>
+      <div class="section-label">El pipeline</div>
+      <h2>Búsqueda → verificación → deduplicación → puntuación → citación.</h2>
+      <p>Construida usando las skills `literature-review` y `doi-verify` con PubMed (E-utilities NCBI), OpenAlex y la API REST de Crossref.</p>
 
-      <h3>Étape 1 — Recherche PubMed large</h3>
-      <p>Une requête booléenne combinée couvrant les trois pathologies, filtrée sur anglais/espagnol, dates de publication 2022/01/01 à 2026/12/31 :</p>
+      <h3>Paso 1 — Búsqueda amplia en PubMed</h3>
+      <p>Una consulta booleana combinada cubriendo las tres patologías, filtrada a inglés/español, fechas de publicación 2022/01/01 a 2026/12/31:</p>
       <div class="citation"><code>"Celiac Disease"[Mesh] OR "non-celiac gluten sensitivity"[tiab] OR "NCGS"[tiab] OR "gluten sensitivity"[tiab] OR "gluten intolerance"[tiab] OR "Wheat Hypersensitivity"[Mesh] OR "wheat allergy"[tiab] OR "coeliac disease"[tiab] AND ("2022/01/01"[PDAT] : "2026/12/31"[PDAT])</code></div>
-      <p>Cela a renvoyé <strong>2 772 résultats</strong>. Les 80 les plus pertinents selon le classement de pertinence de PubMed ont été récupérés intégralement (XML efetch), plus 64 articles supplémentaires issus de sous-requêtes ciblées (Espagne, critères diagnostiques, revues allergie au blé, nocebo/FODMAP).</p>
+      <p>Esto devolvió <strong>2.772 resultados</strong>. Los 80 más relevantes según el ranking de relevancia de PubMed se descargaron íntegros (XML efetch), más 64 artículos adicionales de subconsultas específicas (España, criterios diagnósticos, revisiones de alergia al trigo, nocebo/FODMAP).</p>
 
-      <h3>Étape 2 — Sous-requêtes ciblées</h3>
-      <p>Cinq requêtes booléennes ciblées ont été ajoutées pour capturer des angles que la requête large aurait manqués :</p>
+      <h3>Paso 2 — Subconsultas específicas</h3>
+      <p>Se añadieron cinco consultas booleanas específicas para captar ángulos que la consulta amplia habría perdido:</p>
       <ul class="bullet">
-        <li>Espagne + cœliaque / NCGS — 156 résultats</li>
-        <li>Espagne + réglementation sans gluten / AESAN / FACE — 8 résultats</li>
-        <li>NCGS + critères diagnostiques / Salerne — 20 résultats</li>
-        <li>Filtre revues allergie au blé — 27 résultats</li>
-        <li>NCGS + nocebo / attente / FODMAP — 21 résultats</li>
+        <li>España + celiaquía / NCGS — 156 resultados</li>
+        <li>España + normativa sin gluten / AESAN / FACE — 8 resultados</li>
+        <li>NCGS + criterios diagnósticos / Salerno — 20 resultados</li>
+        <li>Filtro revisiones de alergia al trigo — 27 resultados</li>
+        <li>NCGS + nocebo / expectativa / FODMAP — 21 resultados</li>
       </ul>
 
-      <h3>Étape 3 — Passage OpenAlex</h3>
-      <p>La recherche plein texte d'OpenAlex est permissive et bruyante pour des sujets cliniques étroits, donc elle a été utilisée pour des vérifications d'exhaustivité plutôt que comme source principale. L'essentiel des preuves vient de l'indexation MeSH contrôlée de PubMed, qui est le bon outil pour les requêtes biomédicales.</p>
+      <h3>Paso 3 — Pase por OpenAlex</h3>
+      <p>La búsqueda a texto completo de OpenAlex es permisiva y ruidosa para temas clínicos estrechos, así que se usó para comprobaciones de exhaustividad más que como fuente principal. La mayor parte de la evidencia viene de la indexación MeSH controlada de PubMed, que es la herramienta adecuada para consultas biomédicas.</p>
 
-      <h3>Étape 4 — Déduplication</h3>
-      <p>Fusion par PMID, puis déduplication par DOI canonique (en minuscules, normalisé Crossref). Final : <strong>142 DOI uniques</strong> + 2 sans DOI.</p>
+      <h3>Paso 4 — Deduplicación</h3>
+      <p>Fusionado por PMID, luego deduplicado por DOI canónico (en minúsculas, normalizado Crossref). Final: <strong>142 DOI únicos</strong> + 2 sin DOI.</p>
 
-      <h3>Étape 5 — Vérification DOI (la porte anti-hallucination)</h3>
-      <p>Chaque DOI a été résolu en lot via l'API REST Crossref (le registre canonique des métadonnées DOI). Chaque candidat a été vérifié pour :</p>
+      <h3>Paso 5 — Verificación de DOI (la puerta anti-alucinación)</h3>
+      <p>Cada DOI se resolvió en lote a través de la API REST de Crossref (el registro canónico de metadatos de DOI). Cada candidato se comprobó para:</p>
       <ul class="bullet">
-        <li>Le DOI renvoie HTTP 200 avec métadonnées (vs 404 / halluciné)</li>
-        <li>Le type est <code>journal-article</code>, <code>proceedings-article</code> ou <code>book-chapter</code> — les préprints (<code>posted-content</code>) exclus sauf intention explicite</li>
-        <li>L'année correspond à ce qui est affirmé (±1 acceptable pour in-press)</li>
-        <li>Le titre correspond à ce que le LLM aurait cité (vérifié pendant l'étape d'écriture)</li>
-        <li><code>is-retracted</code> est faux</li>
+        <li>El DOI devuelve HTTP 200 con metadatos (vs 404 / alucinado)</li>
+        <li>El tipo es <code>journal-article</code>, <code>proceedings-article</code> o <code>book-chapter</code> — preprints (<code>posted-content</code>) excluidos salvo intención explícita</li>
+        <li>El año coincide con lo afirmado (±1 aceptable para in-press)</li>
+        <li>El título coincide con lo que el LLM habría citado (verificado durante la redacción)</li>
+        <li><code>is-retracted</code> es falso</li>
       </ul>
-      <p>Résultat : <strong>140/142 DOI résolus avec succès</strong>. Les deux échecs (une revue domestique en chinois, un document non-revue) ont été exclus de l'ensemble des citations.</p>
+      <p>Resultado: <strong>140/142 DOIs resueltos con éxito</strong>. Los dos fallos (una revista local en chino, un documento que no es artículo de revista) se excluyeron del conjunto de citas.</p>
 
-      <h3>Étape 6 — Notation de pertinence</h3>
-      <p>Les 140 articles vérifiés ont été notés sur une grille pondérée pour leur pertinence à la question d'Ugo (CD vs NCGS vs allergie au blé, plus angle Espagne) :</p>
+      <h3>Paso 6 — Puntuación de relevancia</h3>
+      <p>Los 140 artículos verificados se puntuaron con una rúbrica ponderada por relevancia respecto a la pregunta de Ugo (EC vs NCGS vs alergia al trigo, más el ángulo España):</p>
       <ul class="bullet">
-        <li>Mots-clés NCGS / sensibilité au gluten : +3 par correspondance</li>
-        <li>Mots-clés allergie au blé : +2 par correspondance</li>
-        <li>Mots-clés Espagne / espagnol / AESAN / FACE : +5 par correspondance (angle unique)</li>
-        <li>Diagnostic différentiel / Salerne / recommandations / consensus : +2 par correspondance</li>
-        <li>Type de publication = Revue / Revue systématique / Méta-analyse / Recommandations : +4</li>
-        <li>Journal à fort impact (Lancet, Nature, Gut, Gastroenterology, BMJ, JAMA, etc.) : +2</li>
+        <li>Palabras clave NCGS / sensibilidad al gluten: +3 por coincidencia</li>
+        <li>Palabras clave alergia al trigo: +2 por coincidencia</li>
+        <li>Palabras clave España / español / AESAN / FACE: +5 por coincidencia (ángulo único)</li>
+        <li>Diagnóstico diferencial / Salerno / guías / consenso: +2 por coincidencia</li>
+        <li>Tipo de publicación = Revisión / Revisión sistemática / Meta-análisis / Guías: +4</li>
+        <li>Revista de alto impacto (Lancet, Nature, Gut, Gastroenterology, BMJ, JAMA, etc.): +2</li>
       </ul>
-      <p>Les 25 les mieux notés, plus les œuvres à plus fort impact (Lancet, Nature Reviews, recommandations ESsCD), ont été priorisés pour lecture directe des abstracts et citation dans ce site.</p>
+      <p>Los 25 mejor puntuados, más las obras de mayor impacto (Lancet, Nature Reviews, guías ESsCD), se priorizaron para lectura directa de abstracts y citación en este sitio.</p>
 
-      <h3>Étape 7 — Lecture + rédaction</h3>
-      <p>Les abstracts ont été lus directement depuis le XML efetch de PubMed (pas des abstracts d'abstracts). Les affirmations clés du texte du site sont citées à partir des abstracts, avec des citations [N] renvoyant au DOI vérifié sur la page <a href="evidence.html">preuves</a>.</p>
+      <h3>Paso 7 — Lectura + redacción</h3>
+      <p>Los abstracts se leyeron directamente desde el XML efetch de PubMed (no abstracts de abstracts). Las afirmaciones clave del texto del sitio se citan desde los abstracts, con citas [N] que enlazan al DOI verificado en la página <a href="evidence.html">pruebas</a>.</p>
     </div>
   </section>
 
   <section>
     <div class="container">
-      <div class="section-label">Numérotation des citations</div>
-      <h2>Liste de références.</h2>
-      <p>Les citations numérotées utilisées dans ce site :</p>
+      <div class="section-label">Numeración de citas</div>
+      <h2>Lista de referencias.</h2>
+      <p>Las citas numeradas utilizadas en este sitio:</p>
 
       <ol class="bullet">
         <li><strong>Al-Toma A et al.</strong> European Society for the Study of Coeliac Disease 2025 Updated Guidelines on the Diagnosis and Management of Coeliac Disease in Adults. Part 1: Diagnostic Approach. United European Gastroenterol J. 2025. <a href="https://doi.org/10.1002/ueg2.70119" target="_blank" rel="noopener">doi:10.1002/ueg2.70119</a>.</li>
@@ -145,46 +146,46 @@
         <li><strong>Gibson PR et al.</strong> Coeliac disease in 2022. Aliment Pharmacol Ther. 2022;56(S1):3-15. <a href="https://doi.org/10.1111/apt.17100" target="_blank" rel="noopener">doi:10.1111/apt.17100</a>.</li>
       </ol>
 
-      <h3>Ce qui n'est délibérément PAS dans cette revue</h3>
-      <p>Cette revue est délimitée pour rester rigoureuse et utile :</p>
+      <h3>Lo que NO está deliberadamente en esta revisión</h3>
+      <p>Esta revisión está acotada para mantener rigor y utilidad:</p>
       <ul class="bullet">
-        <li><strong>Articles d'avant 2022</strong> — la question portait spécifiquement sur la littérature actuelle. Les œuvres historiques de référence (Sapone 2012 sur le consensus NCGS, etc.) ne sont pas citées.</li>
-        <li><strong>Sources non-évaluées par les pairs</strong> — pas de blogs bien-être, pas d'allégations de fabricants, pas d'articles de presse.</li>
-        <li><strong>Copies piratées / Sci-Hub</strong> — aucun article n'est cité à partir d'une source non-officielle. Chaque DOI est ouvert, archivé sur PMC, ou paywall (nous citons le DOI indépendamment de l'accès).</li>
-        <li><strong>Données d'enquête en auto-déclaration sans vérification biologique</strong> — les données du marché sans gluten (20,1 milliards USD en 2021) sont dans l'article Bektaş 2026 pour le contexte ; elles ne sont pas utilisées pour faire des affirmations médicales.</li>
-        <li><strong>Allégations « non cœliaque » spéculatives sans données de test en aveugle</strong> — le chiffre 16–30 % (Biesiekierski 2025) est la figure conservatrice basée sur des études contrôlées, pas l'auto-déclaration.</li>
+        <li><strong>Artículos anteriores a 2022</strong> — la pregunta era específicamente sobre la literatura actual. Las obras históricas de referencia (Sapone 2012 sobre el consenso de NCGS, etc.) no se citan.</li>
+        <li><strong>Fuentes no revisadas por pares</strong> — sin blogs de bienestar, sin alegaciones de fabricantes, sin artículos de prensa.</li>
+        <li><strong>Copias pirateadas / Sci-Hub</strong> — ningún artículo se cita desde una fuente no oficial. Cada DOI es abierto, está archivado en PMC, o es de pago (citamos el DOI independientemente del acceso).</li>
+        <li><strong>Datos de encuestas autodeclaradas sin verificación biológica</strong> — los datos del mercado sin gluten (20,1 mil millones USD en 2021) están en el artículo de Bektaş 2026 como contexto; no se usan para hacer afirmaciones médicas.</li>
+        <li><strong>Alegaciones «no celíacas» especulativas sin datos de pruebas ciegas</strong> — la cifra del 16–30 % (Biesiekierski 2025) es la cifra conservadora basada en estudios controlados, no en la autodeclaración.</li>
       </ul>
     </div>
   </section>
 
   <section>
     <div class="container">
-      <div class="section-label">Important</div>
-      <h2>Ce que cette revue n'est pas.</h2>
+      <div class="section-label">Importante</div>
+      <h2>Lo que esta revisión NO es.</h2>
 
       <div class="callout callout-warm">
-        <h4>Pas un avis médical</h4>
-        <p>Ceci est une revue de littérature à des fins éducatives. Ce n'est pas un outil diagnostique, pas une recommandation de traitement, et pas un substitut à la consultation avec un gastro-entérologue, un allergologue ou un diététicien diplômé. La décision de commencer, continuer ou arrêter un régime sans gluten doit être prise avec un professionnel de santé qui connaît votre historique médical complet.</p>
+        <h4>No es consejo médico</h4>
+        <p>Esto es una revisión bibliográfica con fines educativos. No es una herramienta diagnóstica, no es una recomendación de tratamiento y no sustituye la consulta con un gastroenterólogo, alergólogo o dietista titulado. La decisión de empezar, continuar o abandonar una dieta sin gluten debe tomarse con un profesional sanitario que conozca tu historial médico completo.</p>
       </div>
 
       <div class="callout callout-blue">
-        <h4>Pas un substitut aux articles eux-mêmes</h4>
-        <p>Chaque affirmation ici est paraphrasée ou directement citée à partir des abstracts cités. Les articles complets contiennent des nuances (méthodes statistiques, tailles d'échantillons, critères d'exclusion, divulgations de conflits d'intérêts) que ce site ne peut pas reproduire. Si une affirmation compte pour vous, cliquez sur le DOI et lisez l'original.</p>
+        <h4>No sustituye a los artículos originales</h4>
+        <p>Cada afirmación de aquí está parafraseada o directamente citada desde los abstracts citados. Los artículos completos contienen matices (métodos estadísticos, tamaños muestrales, criterios de exclusión, declaraciones de conflictos de intereses) que este sitio no puede reproducir. Si una afirmación te importa, haz clic en el DOI y lee el original.</p>
       </div>
 
       <div class="callout">
-        <h4>Construit sur une date butoir</h4>
-        <p>La recherche documentaire a été complétée le jour où ce site a été généré. La médecine évolue — de nouveaux articles apparaissent chaque semaine, et le tableau 2026 sera différent du tableau 2027. Si une question compte, revérifiez la littérature dans six mois.</p>
+        <h4>Construida con una fecha de corte</h4>
+        <p>La búsqueda bibliográfica se completó el día en que se generó este sitio. La medicina avanza — aparecen artículos nuevos cada semana, y el panorama de 2026 será diferente del de 2027. Si una pregunta te importa, vuelve a revisar la literatura en seis meses.</p>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="inner">
-      <div>© 2026 · Revue de littérature · Construite avec des sources évaluées par les pairs</div>
+      <div>© 2026 · Revisión bibliográfica · Construida con fuentes revisadas por pares</div>
       <div>
-        <a href="about.html">Méthodologie</a>
-        <a href="evidence.html">Toutes les sources</a>
+        <a href="about.html">Metodología</a>
+        <a href="evidence.html">Todas las fuentes</a>
       </div>
     </div>
   </footer>
@@ -196,8 +197,8 @@
       const btn = document.getElementById('themeToggle');
       function updateTheme() {
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        btn.textContent = isDark ? '\u2600 Clair' : '\u263e Sombre';
-        btn.setAttribute('aria-label', isDark ? 'Passer en mode clair' : 'Passer en mode sombre');
+        btn.textContent = isDark ? '\u2600 Claro' : '\u263e Oscuro';
+        btn.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
       }
       updateTheme();
       btn.addEventListener('click', () => {
@@ -212,12 +213,12 @@
       const backdrop = document.getElementById('backdrop');
       function openDrawer() {
         drawer.classList.add('open'); backdrop.classList.add('show');
-        hamburger.setAttribute('aria-expanded', 'true'); hamburger.setAttribute('aria-label', 'Fermer le menu');
+        hamburger.setAttribute('aria-expanded', 'true'); hamburger.setAttribute('aria-label', 'Cerrar menú');
         drawer.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
       }
       function closeDrawer() {
         drawer.classList.remove('open'); backdrop.classList.remove('show');
-        hamburger.setAttribute('aria-expanded', 'false'); hamburger.setAttribute('aria-label', 'Ouvrir le menu');
+        hamburger.setAttribute('aria-expanded', 'false'); hamburger.setAttribute('aria-label', 'Abrir menú');
         drawer.setAttribute('aria-hidden', 'true'); document.body.style.overflow = '';
       }
       function toggleDrawer() { if (drawer.classList.contains('open')) closeDrawer(); else openDrawer(); }
